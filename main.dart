@@ -13,8 +13,9 @@ Storage todos;
 
 @Command("add-todo")
 addToDo(CommandEvent event) {
-  if (event.args.isNotEmpty) {
+  if (event.args.isEmpty) {
     event.reply("> Usage: add-todo <message>");
+    return;
   }
 
   todos.addToList("${event.network}:${event.user}", event.args.join(" "));
